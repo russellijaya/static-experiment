@@ -99,14 +99,6 @@
       line-height: 1;
     }
 
-    .section-title--mr-robot {
-      color: #f30000;
-    }
-
-    .section-title--one-piece {
-      color: #f39200;
-    }
-
     /* Row */
     .row {
       display: flex;
@@ -130,6 +122,12 @@
       padding: 8px;
       min-width: 0;
       min-height: 0;
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+    }
+
+    .card:hover {
+      opacity: 0.5;
     }
 
     .thumbnail {
@@ -172,184 +170,256 @@
       line-height: 1.5;
       width: 100%;
     }
+
+    /* Modal */
+    @keyframes overlay-in {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    @keyframes modal-spring {
+      0%   { opacity: 0;   transform: scale(0.82) translateY(12px); }
+      55%  { opacity: 1;   transform: scale(1.04) translateY(-3px); }
+      75%  { transform: scale(0.97) translateY(1px); }
+      90%  { transform: scale(1.01); }
+      100% { transform: scale(1)    translateY(0); }
+    }
+
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background-color: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .modal-overlay.is-open {
+      display: flex;
+      animation: overlay-in 0.25s ease forwards;
+    }
+
+    .modal-overlay.is-open .modal {
+      animation: modal-spring 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+
+    .modal {
+      background-color: #fafafa;
+      width: 100%;
+      max-width: 360px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 12px;
+    }
+
+    .modal-text {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .modal-episode {
+      color: #49453d;
+      font-size: 14px;
+      line-height: normal;
+    }
+
+    .modal-desc {
+      color: #141414;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .modal-body {
+      color: #141414;
+      font-size: 11px;
+      line-height: 1.7;
+      font-style: italic;
+    }
   </style>
 </head>
 <body>
   <div class="site">
-
-    <!-- Hero -->
     <div class="hero">
       <p class="hero-title">ac∙tive∙con∙sump∙tion</p>
       <p class="hero-subtitle">a running list of thoughts I had while watching television, movies and animes. a reminder that it is always a choice to read rather than watch. </p>
     </div>
 
-    <!-- Warning -->
     <div class="warning-div">
       <p class="warning-text">warning: spoilers!</p>
     </div>
 
-    <!-- MR. ROBOT Section -->
-    <div class="section">
-      <p class="section-title section-title--mr-robot">MR. ROBOT</p>
-
-      <div class="row">
-        <div class="card">
-          <div class="thumbnail">
-            <img src="assets/9e2a6cd0a8f9500585a96fac65c46a19723d9f06.png" alt="">
-          </div>
-          <div class="card-text">
-            <p class="card-episode">s1 EP1</p>
-            <p class="card-desc">Thoughts on the design of Tyler Wellick's storyline</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="thumbnail">
-            <img src="assets/9e2a6cd0a8f9500585a96fac65c46a19723d9f06.png" alt="">
-            <img src="assets/bf9fd88b0774a4d0bab597dd7474675745c6c384.png" alt="">
-          </div>
-          <div class="card-text">
-            <p class="card-episode">s1 EP6</p>
-            <p class="card-desc">Thoughts on Shayla, relationships and loneliness</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="thumbnail">
-            <img src="assets/9e2a6cd0a8f9500585a96fac65c46a19723d9f06.png" alt="">
-            <img src="assets/0177747e4c14a7d102327d9bc3d1ca0fa8d66cbb.png" alt="">
-          </div>
-          <div class="card-text">
-            <p class="card-episode">s1 EP7</p>
-            <p class="card-desc">Thesis and antithesis of capital and the working class</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="thumbnail">
-            <img src="assets/9e2a6cd0a8f9500585a96fac65c46a19723d9f06.png" alt="">
-            <img src="assets/1c4663a273f332e1e770a7fe0dcf1a8584ce3ee6.png" alt="">
-          </div>
-          <div class="card-text">
-            <p class="card-episode">s1 EP9</p>
-            <p class="card-desc">Just a picture of a very cool title card</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="row row--tight">
-        <div class="card">
-          <div class="thumbnail">
-            <img src="assets/312835cf3af7eb32a2281ea0840134a2a6e15bc6.png" alt="">
-          </div>
-          <div class="card-text">
-            <p class="card-episode">s1 EP2</p>
-            <p class="card-desc">Insert overly pretentious description you'd write at 16</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="thumbnail">
-            <img src="assets/2171089b7f91f01921baff379b51f62458de6a4d.png" alt="">
-          </div>
-          <div class="card-text">
-            <p class="card-episode">s1 EP4</p>
-            <p class="card-desc">Insert overly pretentious description you'd write at 16</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="thumbnail">
-            <img src="assets/64092d0b2bb8c1808daaba1d8bda3068913984c8.png" alt="">
-          </div>
-          <div class="card-text">
-            <p class="card-episode">s1 EP5</p>
-            <p class="card-desc">Insert overly pretentious description you'd write at 16</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="thumbnail">
-            <img src="assets/744ae37b92570682226c2453532ba3e6abfbc1c9.png" alt="">
-          </div>
-          <div class="card-text">
-            <p class="card-episode">s1 EP10</p>
-            <p class="card-desc">Insert overly pretentious description you'd write at 16</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ONE PIECE Section -->
-    <div class="section">
-      <p class="section-title section-title--one-piece">ONE PIECE</p>
-
-      <div class="row">
-        <div class="card">
-          <div class="thumbnail" style="overflow: hidden;">
-            <img src="assets/3336a206a243d03f3803522190c045aaee21a86c.png" alt="" style="height: 113.13%; top: 0.18%; object-fit: cover;">
-          </div>
-          <div class="card-text">
-            <p class="card-episode">EP196</p>
-            <p class="card-desc">On God, faithlessness, fate, prayer and being human</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="thumbnail">
-            <img src="assets/ffc78cf3212b7e1bad87f283b632a794e42482f8.png" alt="">
-          </div>
-          <div class="card-text">
-            <p class="card-episode">EP208</p>
-            <p class="card-desc">A lesson on how to stand on business and what it means to be a man</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="thumbnail">
-            <img src="assets/41f09934c9c82c13ecdb729ca67675217515ea99.png" alt="">
-          </div>
-          <div class="card-text">
-            <p class="card-episode">s1 EP4</p>
-            <p class="card-desc">Insert overly pretentious description you'd write at 16</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="row row--tight">
-        <div class="card">
-          <div class="thumbnail">
-            <img src="assets/920f8ff1369619a545591fc2d7fd444a3a894361.png" alt="">
-          </div>
-          <div class="card-text">
-            <p class="card-episode">EP129</p>
-            <p class="card-desc">Insert overly pretentious description you'd write at 16</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="thumbnail">
-            <img src="assets/2171089b7f91f01921baff379b51f62458de6a4d.png" alt="">
-            <img src="assets/32658f701c4055ca4a22a700663ae71830a798ee.png" alt="">
-          </div>
-          <div class="card-text">
-            <p class="card-episode">EP64</p>
-            <p class="card-desc">Insert overly pretentious description you'd write at 16</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="thumbnail">
-            <img src="assets/850387b59bae32582ad05b71c74c6131d882315d.png" alt="">
-          </div>
-          <div class="card-text">
-            <p class="card-episode">EP148</p>
-            <p class="card-desc">Insert overly pretentious description you'd write at 16</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
+    <div id="sections" style="display: flex; flex-direction: column; gap: 96px; width: 100%;"></div>
   </div>
+
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal" id="modal">
+      <div class="modal-text">
+        <p class="modal-episode" id="modal-episode"></p>
+        <p class="modal-desc" id="modal-desc"></p>
+      </div>
+      <p class="modal-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+    </div>
+  </div>
+
+  <script>
+    const shows = [
+      {
+        title: 'MR. ROBOT',
+        color: '#f30000',
+        rowSize: 4,
+        cards: [
+          {
+            episode: 's1 EP1',
+            desc: "Thoughts on the design of Tyler Wellick's storyline",
+            images: ['assets/9e2a6cd0a8f9500585a96fac65c46a19723d9f06.png'],
+          },
+          {
+            episode: 's1 EP6',
+            desc: 'Thoughts on Shayla, relationships and loneliness',
+            images: [
+              'assets/9e2a6cd0a8f9500585a96fac65c46a19723d9f06.png',
+              'assets/bf9fd88b0774a4d0bab597dd7474675745c6c384.png',
+            ],
+          },
+          {
+            episode: 's1 EP7',
+            desc: 'Thesis and antithesis of capital and the working class',
+            images: [
+              'assets/9e2a6cd0a8f9500585a96fac65c46a19723d9f06.png',
+              'assets/0177747e4c14a7d102327d9bc3d1ca0fa8d66cbb.png',
+            ],
+          },
+          {
+            episode: 's1 EP9',
+            desc: 'Just a picture of a very cool title card',
+            images: [
+              'assets/9e2a6cd0a8f9500585a96fac65c46a19723d9f06.png',
+              'assets/1c4663a273f332e1e770a7fe0dcf1a8584ce3ee6.png',
+            ],
+          },
+          {
+            episode: 's1 EP2',
+            desc: "Insert overly pretentious description you'd write at 16",
+            images: ['assets/312835cf3af7eb32a2281ea0840134a2a6e15bc6.png'],
+          },
+          {
+            episode: 's1 EP4',
+            desc: "Insert overly pretentious description you'd write at 16",
+            images: ['assets/2171089b7f91f01921baff379b51f62458de6a4d.png'],
+          },
+          {
+            episode: 's1 EP5',
+            desc: "Insert overly pretentious description you'd write at 16",
+            images: ['assets/64092d0b2bb8c1808daaba1d8bda3068913984c8.png'],
+          },
+          {
+            episode: 's1 EP10',
+            desc: "Insert overly pretentious description you'd write at 16",
+            images: ['assets/744ae37b92570682226c2453532ba3e6abfbc1c9.png'],
+          },
+        ],
+      },
+      {
+        title: 'ONE PIECE',
+        color: '#f39200',
+        rowSize: 3,
+        cards: [
+          {
+            episode: 'EP196',
+            desc: 'On God, faithlessness, fate, prayer and being human',
+            images: ['assets/3336a206a243d03f3803522190c045aaee21a86c.png'],
+          },
+          {
+            episode: 'EP208',
+            desc: 'A lesson on how to stand on business and what it means to be a man',
+            images: ['assets/ffc78cf3212b7e1bad87f283b632a794e42482f8.png'],
+          },
+          {
+            episode: 's1 EP4',
+            desc: "Insert overly pretentious description you'd write at 16",
+            images: ['assets/41f09934c9c82c13ecdb729ca67675217515ea99.png'],
+          },
+          {
+            episode: 'EP129',
+            desc: "Insert overly pretentious description you'd write at 16",
+            images: ['assets/920f8ff1369619a545591fc2d7fd444a3a894361.png'],
+          },
+          {
+            episode: 'EP64',
+            desc: "Insert overly pretentious description you'd write at 16",
+            images: [
+              'assets/2171089b7f91f01921baff379b51f62458de6a4d.png',
+              'assets/32658f701c4055ca4a22a700663ae71830a798ee.png',
+            ],
+          },
+          {
+            episode: 'EP148',
+            desc: "Insert overly pretentious description you'd write at 16",
+            images: ['assets/850387b59bae32582ad05b71c74c6131d882315d.png'],
+          },
+        ],
+      },
+    ];
+
+    function chunk(arr, size) {
+      const result = [];
+      for (let i = 0; i < arr.length; i += size) result.push(arr.slice(i, i + size));
+      return result;
+    }
+
+    function renderCard(card) {
+      const imgs = card.images.map(src => `<img src="${src}" alt="">`).join('');
+      return `
+        <div class="card">
+          <div class="thumbnail">${imgs}</div>
+          <div class="card-text">
+            <p class="card-episode">${card.episode}</p>
+            <p class="card-desc">${card.desc}</p>
+          </div>
+        </div>`;
+    }
+
+    function renderSection(show) {
+      const rows = chunk(show.cards, show.rowSize);
+      const rowsHTML = rows.map((row, i) => `
+        <div class="row${i > 0 ? ' row--tight' : ''}">
+          ${row.map(renderCard).join('')}
+        </div>`).join('');
+      return `
+        <div class="section">
+          <p class="section-title" style="color: ${show.color}">${show.title}</p>
+          ${rowsHTML}
+        </div>`;
+    }
+
+    document.getElementById('sections').innerHTML = shows.map(renderSection).join('');
+
+    // Modal
+    const overlay = document.getElementById('modal-overlay');
+    const modalEpisode = document.getElementById('modal-episode');
+    const modalDesc = document.getElementById('modal-desc');
+
+    document.getElementById('sections').addEventListener('click', e => {
+      const card = e.target.closest('.card');
+      if (!card) return;
+      modalEpisode.textContent = card.querySelector('.card-episode').textContent;
+      modalDesc.textContent = card.querySelector('.card-desc').textContent;
+      overlay.classList.add('is-open');
+    });
+
+    overlay.addEventListener('click', e => {
+      if (e.target === overlay) overlay.classList.remove('is-open');
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') overlay.classList.remove('is-open');
+    });
+  </script>
 </body>
 </html>
